@@ -10,7 +10,7 @@ class TestBingoGenerator(unittest.TestCase):
 
     def test_bingo_generator_has_default_size(self):
         bingo_generator = bingo.BingoGenerator()
-        self.assertEquals(bingo_generator.size, 20)
+        self.assertEquals(bingo_generator.size, bingo.DEFAULT_SIZE)
 
     def test_bingo_generator_has_given_size(self):
         bingo_generator = bingo.BingoGenerator(5)

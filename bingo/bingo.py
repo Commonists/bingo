@@ -1,6 +1,6 @@
 import random
 
-DEFAULT_SIZE = 20
+DEFAULT_SIZE = 25
 
 
 class BingoGenerator(object):
