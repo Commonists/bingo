@@ -32,3 +32,11 @@ class TestBingoGenerator(unittest.TestCase):
         bingo_generator.words = seed_list
         selection = set(bingo_generator.select_words())
         self.assertTrue(seed_list.difference(selection))
+
+    def test_select_with_seed_too_small_raise_Exception(self):
+        with self.assertRaises(ValueError):
+            test_size = 2
+            bingo_generator = bingo.BingoGenerator(size=test_size)
+            seed_list = ['a', 'b', 'c']
+            bingo_generator.words = seed_list
+            bingo_generator.select_words()
