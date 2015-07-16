@@ -8,7 +8,7 @@ except ImportError:
 
 packages = ['bingo']
 requires = ['argparse']
-scripts = []
+scripts = ['bin/make_bingo.py']
 
 setup(
     name='Bingo',
