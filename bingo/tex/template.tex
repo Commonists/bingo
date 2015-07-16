@@ -1,0 +1,48 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{xstring}
+\usepackage{tikz}
+\usepackage[a4paper, margin=0.5cm]{geometry}
+\usetikzlibrary{calc}
+
+\newcommand{\Size}{4cm}% Adjust size of square as desired
+
+\def\NumOfColumns{${size}}%
+\def\Sequence{${sequence}}
+% 1/A, 2/B, 3/C, 4/D, 5/E}% This needs to match \NumOfColumns
+
+\tikzset{Square/.style={
+    inner sep=0pt,
+    text width=\Size,
+    minimum size=\Size,
+    draw=black,
+    align=center
+    }
+}
+${node_definitions}
+\newcommand{\NodeCC}{\includegraphics[width=0.9\textwidth]{center.png}}%
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\textsc{\Huge ${title}}
+\end{center}
+\hrule
+\bigskip
+\bigskip
+Pay attention during plenaries and Q\&A! Play bingo!
+
+\begin{itemize}
+\item Check off every word as the speaker moves forward in his session
+\item If you complete any line, row or diagonal, shout  "Bingo" -- you've won!
+\end{itemize}
+\hfill \\[1.5cm]
+\bigskip
+\begin{tikzpicture}[draw=black, ultra thick, x=\Size,y=\Size]
+    \foreach \col/\colLetter in \Sequence {%
+        \foreach \row/\rowLetter in \Sequence{%
+            \pgfmathtruncatemacro{\value}{\col+\NumOfColumns*(\row-1)}
+            \def\NodeText{\large \expandafter\csname Node\rowLetter\colLetter\endcsname}
+            \node [Square] at ($(\col,-\row)-(0.5,0.5)$) {\NodeText};
+        }
+    }
+\end{tikzpicture}
+\end{document}
