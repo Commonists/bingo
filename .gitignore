@@ -36,3 +36,7 @@ cover/
 .mr.developer.cfg
 .project
 .pydevproject
+
+*.log
+*.aux
+*.pdf
