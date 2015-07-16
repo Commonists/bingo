@@ -30,7 +30,7 @@ def make_bingo_card_deck(words, size, count):
             f.write(card)
         cmd = "pdflatex --output-directory=%s %s" % (tempdir, filename)
         logging.info("Generating PDF: %s" % cmd)
-        status = subprocess.call(cmd, shell=True)
+        subprocess.call(cmd, shell=True)
         # subprocess.Popen(cmd, shell=True,
         #                  stdout=subprocess.PIPE,
         #                  cwd=tempdir).communicate()
